@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="node_modules/monaco-editor/min/vs/editor/editor.main.css">
+    <style>
+        *{
+          margin: 0;
+          padding: 0;
+        }
+        #editor {
+            height: 100vh;
+        }
+    </style>
 </head>
 <body>
-  
+    <div id="editor"></div>
+    <script src="popup.js"></script>
 </body>
 </html>
