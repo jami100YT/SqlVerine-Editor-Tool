@@ -91,11 +91,18 @@ const sqlKeywords = [
             var editor = document.createElement('pre');
             editor.id = "editor";
             editor.setAttribute("contenteditable", true)
-            editor.addEventListener('input', updateLineNumbers);
+            editor.addEventListener('keydown', function(event){
+                var lines = 0;
+                if(event.key == "Enter"){
+                    var lines = editor.innerText.split("\n");
+                    lineNumbers.textContent += "\n" + (lines.length + 1);
+                }
+                if(event.key == "Backspace"){
+                    // Conent
+                }
+            });
 
-            function updateLineNumbers() {
-                // Content
-            }
+
 
             codeEditor.appendChild(editor);
 
