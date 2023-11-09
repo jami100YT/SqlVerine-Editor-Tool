@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            font-family: 'Courier New', monospace;
+            display: flex;
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+        #line-numbers {
+            color: #5a5a5a;
+            padding: 10px;
+            line-height: 1.5;
+            white-space: pre;
+            overflow: auto;
+        }
+        #editor {
+            flex-grow: 1;
+
+            padding: 10px;
+            line-height: 1.5;
+            tab-size: 4;
+            overflow: auto;
+            outline: none;
+        }
+        .sql-keyword {
+            color: #569cd6;
+        }
+    </style>
+</head>
+<body>
+    <pre id="line-numbers"></pre>
+    <pre id="editor" contenteditable="true"> </pre>
+    
+    <script>
+        const sqlKeywords = ['SELECT', 'FROM', 'WHERE', 'INSERT', 'UPDATE', 'DELETE']; // Add more SQL keywords as needed
+
+        const lineNumbers = document.getElementById('line-numbers');
+        const editor = document.getElementById('editor');
+
+        editor.addEventListener('input', updateEditor);
+
+        function updateEditor() {
+            const lines = editor.textContent.split('\n');
+            lineNumbers.textContent = lines.map((_, index) => index + 1);
+            const highlightedLines = lines.map(line => line.replace(new RegExp(`\\b(${sqlKeywords.join('|')})\\b`, 'gi'), '<span class="sql-keyword">$&</span>'));
+            
+            editor.innerHTML = highlightedLines;
+
+            // Set the cursor at the end of the editor
+            setCursorPosition(editor);
+        }
+
+        // Funktion, um den Cursor an das Ende des Elements zu setzen
+        function setCursorPosition(element) {
+            const range = document.createRange();
+            const sel = window.getSelection();
+            const lastChild = element.lastChild;
+            const isLastChildSpan = lastChild && lastChild.tagName === 'SPAN';
+            if (isLastChildSpan) {
+                range.setStart(lastChild.firstChild, lastChild.firstChild.length);
+                range.setEnd(lastChild.firstChild, lastChild.firstChild.length);
+            } else {
+                range.setStart(lastChild, lastChild.length);
+                range.setEnd(lastChild, lastChild.length);
+            }
+            sel.removeAllRanges();
+            sel.addRange(range);
+        }
+       
+    </script>
+</body>
+</html>

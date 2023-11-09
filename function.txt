@@ -1,0 +1,13 @@
+    const sqlString = textarea.textContent;
+    // Ersetze SQL-Schlüsselwörter durch markierten Text und zeige eine Benachrichtigung
+    const highlightedString = sqlString.replace(new RegExp(`\\b(${sqlKeywords.join('|')})\\b`, 'g'), match => {
+        // Gib das übereinstimmende Wort als markierten Text zurück
+        alert(match);
+        return `<span class="highlight-keyword">${match}</span>`;
+    });
+    
+    // Setze den HTML-Inhalt der textarea neu
+
+    textarea.value = highlightedString;
+
+}

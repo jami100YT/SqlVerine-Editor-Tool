@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Sqlverine Editor Tool",
+  "version": "1.0",
+  "description": "Eine Erweiterung des Sqlverine.org SQL Editors.",
+  "permissions": [
+    "activeTab",
+    "webNavigation"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon-16.png",
+      "48": "images/icon-48.png",
+      "128": "images/icon-128.png"
+    }
+  },
+  "icons": {
+    "16": "images/icon-16.png",
+    "48": "images/icon-48.png",
+    "128": "images/icon-128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://editor.sqlverine.org/*"],
+      "js": ["index.js"],
+      "css": ["index.css"]
+    }
+  ]
+}
