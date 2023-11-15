@@ -7,7 +7,8 @@ if (isTextEditorActive) {
             // Textbereich unsichtbar machen
             var codeEditorContainer = document.getElementById('codeAreaText');
             textEditorTextBox.classList.add("invisible");
-
+            
+            // Visual Studio Code Window erstellen und einfügen
             var editor = document.createElement("iframe");
             editor.classList = "editorWindow"
             editor.src = chrome.runtime.getURL('codeWindow.html');
@@ -27,10 +28,10 @@ if (isTextEditorActive) {
             
 
         } else {
-            // Umgekehrt: Code-Editor deaktivieren und Textbereich anzeigen
+            // Code-Editor deaktivieren und Textbereich anzeigen
             var textEditorTextBox = document.querySelector('.form-control');
-            textEditorTextBox.classList.remove("invisible");
             var codeEditor = document.querySelector('.editorWindow');
+            textEditorTextBox.classList.remove("invisible");
             if (codeEditor) {
                 codeEditor.remove();
             }
