@@ -10,7 +10,7 @@ if (isTextEditorActive) {
 
             var editor = document.createElement("iframe");
             editor.classList = "editorWindow"
-            editor.src = chrome.runtime.getURL('popup.html');
+            editor.src = chrome.runtime.getURL('codeWindow.html');
             editor.width = '800';
             editor.height = '300';
             codeEditorContainer.appendChild(editor);
@@ -28,10 +28,11 @@ if (isTextEditorActive) {
 
         } else {
             // Umgekehrt: Code-Editor deaktivieren und Textbereich anzeigen
-            var codeEditor = document.querySelector('.codeInput');
+            var textEditorTextBox = document.querySelector('.form-control');
+            textEditorTextBox.classList.remove("invisible");
+            var codeEditor = document.querySelector('.editorWindow');
             if (codeEditor) {
                 codeEditor.remove();
-                textEditorTextBox.classList.remove("invisible");
             }
         }
     });
