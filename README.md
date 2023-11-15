@@ -13,7 +13,7 @@ Willkommen beim SqlVerine Editor Tool! Diese Chrome-Erweiterung verbessert die B
 2. **Klonen oder Herunterladen:**
    - Klonen des Repositories:
      ```bash
-     git clone https://github.com/dein-benutzername/SqlVerine-Editor-Tool.git
+     git clone https://github.com/jami100YT/SqlVerine-Editor-Tool.git
      ```
    - Oder lade das ZIP-Archiv herunter und entpacke es.
 
