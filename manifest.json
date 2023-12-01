@@ -3,9 +3,6 @@
   "name": "Sqlverine Editor Tool",
   "version": "1.0",
   "description": "Eine Erweiterung für den Sqlverine.org SQL Editor.",
-  "permissions": [
-    "activeTab"
-  ],
   "web_accessible_resources": [
     {
       "resources": ["codeWindow.html", "codeWindow.js"],
